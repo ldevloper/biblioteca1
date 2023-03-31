@@ -11,7 +11,7 @@ class Livros(models.Model):
     titulo = models.CharField("Titulo",max_length=150)
     descricao = models.CharField("Descrição",max_length=200)
     editora = models.CharField("Editora",max_length=150)
-    status = models.
+    status = models.IntegerField("Status")
     imagem =  models.ImageField("Imagem", upload_to='imagens', null=True, blank=True)
     data_cadastro = models.DateField("Data de cadastro")
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE, verbose_name="Autor")
@@ -32,7 +32,7 @@ class Emprestimo(models.Model):
 class Perfil(models.Model):
     nome = models.CharField("Nome",max_length=150)
     email = models.EmailField("Email")
-    avatar = models.
+    avatar = models.ImageField("Foto de Perfil", upload_to='imagens', null=True, blank=True)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
